@@ -4,64 +4,172 @@
 팀 이름
 GGUKBBI
 
-# #1. 맨 처음 화면 (Index)
+View(화면)
 
-[](https://www.notion.so/a0cde709d13649029123025899d4b893?pvs=21)
+> KH 소개			**크롤링
+> 오시는 길		**크롤링
 
-[](https://www.notion.so/9510f3b5d43f46ca8b945d02fd8550e8?pvs=21)
+1. 회원가입
+   - 강사용
+   - 학생용
 
-[](https://www.notion.so/08dac7220ce44c84acbd572331587449?pvs=21)
+2. 로그인
+   - 관리자
+	1. 강의관리
+	 ① 강의조회
+	  > 조회 (리스트 lectorid) (이름: lec_name / 반: classroomid / 시작: lec_beginday / 강사: teacherid)
+	  A. 수정/삭제하기
+		a. 강의수정
+			가. 이름
+			나. 반
+			다. 시작
+			라. 강사
+	  	b. 강의삭제
+			- 삭제 (이름, 반, 시작, 강사 ")
+	  B. 뒤로가기
 
-[](https://www.notion.so/b91090fb526f4b0ca6e9372408b4ac75?pvs=21)
+	 ② 강의개설
+	   A. #추가 (이름: lec_name / 반: classroomid / 시작: lec_beginday / 강사: teacherid)
+	   B. 뒤로가기
 
-[#2. 관리자 메인 페이지](https://www.notion.so/2-b1193868cc214cd5a4368cfdd47728a1?pvs=21)
+	 ③ 뒤로가기
+	  
+	2. 수강생관리
+	 > 강의 (리스트 lectureid) (lec_name)
+	 ① 강의 선택
+	  > 수강생 (리스트 순서) (studentid / stu_name)
+	  A. 수강생 선택
+	   > 인적사항 (studentid, stu_name, stu_age, stu_gender, stu_addr, stu_major, stu_phone)
+	   	a. 뒤로가기
+	   	b. 삭제 (해당 학생 studentid 삭제 후, 수강신청 course_list 삭제)
+	 ② 뒤로가기(-1)
 
-[](https://www.notion.so/07f55304016a4fc1a7b7a5edddc0da5c?pvs=21)
+	3. 시험관리
+	 ① 조회(quiznum) (제목: quiz_title)
+	  A. 번호 선택하기
+		> 상세히 보기 (quiz_title, 내용: quiz_detail, 답안: quizans)
+		a. 삭제
+		b. 뒤로가기(-1)
+	  B. 뒤로가기(-1)
+	 ② 등록
+	  - #추가(quiz_title, quiz_detail, quizans)
+	 ③ 뒤로가기
 
-[](https://www.notion.so/321ea52d2f774df593034e2c6df6f45f?pvs=21)
+	4. 로그아웃
 
-[](https://www.notion.so/1366bd52408c4fc29088dc349469250a?pvs=21)
 
-[](https://www.notion.so/fb7b1d9d316642fbad7c239abfe93998?pvs=21)
+   - 강사용
+	1. 학생 (리스트 순서) (studentid, stu_name)
+	 > 인적사항(studentid, stu_name, stu_age, stu_gender, stu_major, stu_phone)
+	2. 공지사항
+	 ① 공지사항(리스트 announcenum) (제목: am_title)
+	  A. 공지사항 선택
+	   	> 상세히보기 (announcenum, am_title, 내용: am_detail, 조회수: am_view, 시간: regdate)
+	   	> 댓글 (stu_name, studentid, comment_detail)
+			a. 공지사항 수정
+			 가. 제목
+			 나. 내용
+			b. 공지사항 삭제 (해당 댓글 comment 삭제 후, announce 삭제)
+	  		c. 뒤로가기(-1)
+	  B. 뒤로가기(-1)
+ 	 ② 등록
+	  - #추가 (am_title, am_detail)
+	 ③ 뒤로가기
 
-[](https://www.notion.so/59893c96c2e64553af178c1f616951b8?pvs=21)
+	3. 시험관리
+	 > 시험 분류(quiz_type)
+	 ① 분류 선택
+	   > 해당 분류 시험 조회 (리스트 quiznum) (quiz_title)
+	   A. 시험 선택 (quiz_title, quiz_detail, quizans)
+	     > 푼 학생 (리스트 순서) (studentid, stu_name)
+	     a. 학생선택
+	       > 자세히보기 (학생 답: stu_answer, 입력시간: regdate)
+	       가. 채점하기 (score)
+	       나. 뒤로가기
+	     b. 뒤로가기
+	   B. 뒤로가기
+	 ② 뒤로가기
 
-[](https://www.notion.so/6598f56dc16842f98e8f6040a9c7341a?pvs=21)
+	4. 메신저
+	 ① 메신저 조회
+	  > 조회(리스트 msg_num) (제목: msg_title, 보낸사람: studentid, 보낸시간: sendtime)
+	  A. 번호선택
+		> 상세히 보기 (msg_title, stu_name, studentid, sendtime, msg_detail)
+		a. 답장하기 (제목: msg_title, 내용: msg_detail / 받는사람 = 보낸사람)
+		b. 삭제
+		c. 뒤로가기
+	  B. 메신저 삭제
+		a. 전체삭제
+		b. 일괄삭제
+		 - 삭제 첫번째 번호, 마지막 번호 입력받기
+		c. 단일삭제
+		 - 삭제 번호 선택
+		d. 뒤로가기
+	  C. 뒤로가기
+	 ② 메신저 보내기
+	  A. #입력 (받는사람: studentid, 제목: msg_title, 내용: msg_detail)
+	  B. 뒤로가기(String으로 -1 받기)
+	 ③ 뒤로가기
 
-[](https://www.notion.so/7bde486de89f491f92d4ef0094024010?pvs=21)
+	5. 내 정보
+	 > 조회 (teacherid, tea_pw, tea_name, tea_age, tea_gender, tea_phone, lec_name, cr_location)
+	 ① 개인정보 수정
+	  A. 비밀번호
+	  B. 전화번호
+	 ② 뒤로가기
+	6. 로그아웃
 
-[](https://www.notion.so/5afd48135f534554b4103a343c9ea5ed?pvs=21)
+   - 학생용
+	1. 공지사항 보기
+	 > 조회 (리스트 announcenum) (제목: am_title)
+	 A. 선택
+	  > 상세히 보기 (announcenum, am_title, 내용: am_detail, 조회수: am_view, 시간: regdate)
+	  > 해당 댓글 (stu_name, studentid, comment_detail)
+	  > 내 댓글 리스트(commentnum) (stu_name, studentid, comment_detail)
+	  	a. 내 댓글 삭제
+		b. 뒤로가기(-1)
+	 B. 뒤로가기(-1)
 
-[](https://www.notion.so/8ad144ff908a4bbdb17b5ade08072d6d?pvs=21)
+	2. 메신저
+	 ① 메신저 조회
+	  > 조회(리스트 msg_num) (제목: msg_title, 보낸사람: teacherid, 보낸시간: sendtime)
+	  A. 번호선택
+		> 상세히 보기 (msg_title, teachername, sendtime, msg_detail)
+		a. 답장하기 (제목: msg_title, 내용: msg_detail / 받는사람 = 보낸사람)
+		b. 삭제
+		c. 뒤로가기
+	  B. 메신저 삭제
+		a. 전체삭제
+		b. 일괄삭제
+		 - 삭제 첫번째 번호, 마지막 번호 입력받기
+		c. 단일삭제
+		 - 삭제 번호 선택
+		d. 뒤로가기
+	  C. 뒤로가기
+	 ② 메신저 보내기
+	  A. #입력 (제목: msg_title, 내용: msg_detail / 받는사람 = 내가 듣는 강의의 강사님)
+	  B. 뒤로가기(String으로 -1 받기)
+	 ③ 뒤로가기
 
-[](https://www.notion.so/0762af885b2541ddba843ef1d99d7e31?pvs=21)
+	3. 시험
+	 > 시험 분류(quiz_type)
+	 ① 분류 선택
+	   > 해당 분류 미제출 시험 조회 (리스트 quiznum) (quiz_title)
+	   > 해당 분류 제출 시험 조회(리스트 quiznum) (quiz_title, score)
+	   A. 미제출 시험 번호 선택시
+	    > 상세히보기(quiz_title, quiz_detail, quizans)
+	    - 답 입력하기
+	    - 뒤로가기
+	   B. 제출 시험 번호 선택시
+	    > 점수 (quiz_title, quiz_detail, quizans, score)
+	    - 뒤로가기
+	   C. 뒤로가기
+	 ② 뒤로가기
+	4. 내 정보
+	 > 조회 (studentid, stu_pw, stu_name, stu_age, stu_gender, stu_addr, stu_major, stu_phone, lec_name, cr_location)
+	 - 개인정보 수정
+		a. 전화번호
+		b. 주소
+	5. 로그아웃
 
-[](https://www.notion.so/4683c89ce5d7418c97e3f35493385cfb?pvs=21)
-
-[#3. 강사 메인 페이지](https://www.notion.so/3-74a79241868447b9a0ad70252c2fd247?pvs=21)
-
-[](https://www.notion.so/ebd3933b2df646b9a05c004034141335?pvs=21)
-
-[](https://www.notion.so/c88973dea92e46a99e576b3156e5d0b7?pvs=21)
-
-[](https://www.notion.so/76be0b450e5c4ed5920794f7457cd670?pvs=21)
-
-[](https://www.notion.so/e49fc237ebca4823ae8087b763121424?pvs=21)
-
-[](https://www.notion.so/60dddedce7024a8ca28c0cc96f6feb81?pvs=21)
-
-[](https://www.notion.so/a6ee5cef297341a6990f8b9f43e96eeb?pvs=21)
-
-[#4. 학생 메인 페이지](https://www.notion.so/4-c376306ad7674323823e76b910482a95?pvs=21)
-
-[](https://www.notion.so/f0bb532602ae40c6930808e7bebd388f?pvs=21)
-
-[](https://www.notion.so/dff131d407e34faab7d66676bf958916?pvs=21)
-
-[](https://www.notion.so/18e9cbad839c4cb3a06b71f21fc8a846?pvs=21)
-
-[](https://www.notion.so/4654eb46aa1b475bab321d6c88930017?pvs=21)
-
-[](https://www.notion.so/cc7e15e5d6cd4215b164e03f4cc68ea1?pvs=21)
-
-[](https://www.notion.so/f9fd236f2024420cb993175fb1f5d605?pvs=21)
+3. 나가기
